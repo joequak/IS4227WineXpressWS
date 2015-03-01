@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../template/StoreTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        content test page
+        <br></br><br></br>
+        <h:form id="testForm">
+                    
+            <p:panel id="outputPanel" 
+                     header="Test Output Panel" 
+                     style="margin-bottom:20px">
+                <h:outputText value="Test String: " />
+                <h:outputText value="#{testMB.testString}" />
+                <br></br><br></br>
+                <h:outputText value="Write Test Text: " />
+                <h:outputText value="#{testMB.writeTestTxt}" />
+                <br></br><br></br>
+                <p:dataTable var="admin" value="#{testMB.adminList}">
+                    <p:column headerText="firstName">
+                        <h:outputText value="#{admin.firstName}" />
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+
+            <p:commandButton id="btn_form_test" value="Test" 
+                             update="testForm" 
+                             process="@this" 
+                             actionListener="#{testMB.test()}"  
+                             style="margin-right:20px;" />
+            
+            <p:commandButton id="btn_form_writetest" value="WriteTest" 
+                             update="testForm" 
+                             process="@this" 
+                             actionListener="#{testMB.writeTest()}"  
+                             style="margin-right:20px;" />
+            
+            <p:inputText id="readtestinput" value="#{testMB.inputName}" onchange="#{testMB.setInputName(inputName)}"/>
+            
+            <p:commandButton id="btn_form_readtest" value="ReadTest" 
+                             update="testForm" 
+                             process="@this" 
+                             actionListener="#{testMB.readTest()}"  
+                             style="margin-right:20px;" />
+            
+            <h:outputText value="Test Input: " />
+            <h:outputText value="#{testMB.inputName}" />
+            
+        </h:form>
+        
+    </ui:define>
+
+</ui:composition>

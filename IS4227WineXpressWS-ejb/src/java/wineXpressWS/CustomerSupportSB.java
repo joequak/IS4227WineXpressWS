@@ -14,14 +14,14 @@ import javax.persistence.PersistenceContext;
  * @author ¿.¿.¿
  */
 @Stateless
-public class AccountMangementSB implements AccountMangementSBLocal {
+public class CustomerSupportSB implements CustomerSupportSBLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     @PersistenceContext
     private EntityManager em;
 
-    public AccountMangementSB() {
+    public CustomerSupportSB() {
     }
     
     
